@@ -1,6 +1,6 @@
--- Seleções de dados
+-- Creating queries
 
--- 1)
+-- Querying orders with product info)
 SELECT
 	*
 FROM
@@ -9,7 +9,7 @@ JOIN
 	produtos_pedidos pp ON pe.id = pp.pedido_id
 JOIN
 	produtos pr ON pr.id = pp.produto_id;
--- 2)
+-- Querying orders that include 'Fritas')
 SELECT
 	pe.id id_pedido
 FROM
@@ -20,7 +20,7 @@ JOIN
 	produtos pr ON pr.id = pp.produto_id
 WHERE
 	pr.nome ILIKE 'fritas';
--- 3)
+-- Querying the name of clients that ordered 'Fritas' with custom column header 'gostam_de_fritas')
 SELECT
 	cl.nome gostam_de_fritas
 FROM
@@ -33,7 +33,7 @@ JOIN
 	produtos pr ON pr.id = pp.produto_id
 WHERE
 	pr.nome ILIKE 'fritas';
--- 4)
+-- Querying the total price of Laura's orders)
 SELECT
 	SUM(pr.preco) total_pedidos_laura
 FROM
@@ -46,7 +46,7 @@ JOIN
 	clientes cl ON cl.id = pe.cliente_id
 WHERE
 	cl.nome ILIKE 'laura';
--- 5)
+-- Querying products and how many times each was ordered)
 SELECT
 	pr.nome produto, COUNT(pp.produto_id) vezes_pedido
 FROM

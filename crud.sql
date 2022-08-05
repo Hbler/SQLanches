@@ -1,18 +1,18 @@
--- Simulações de um CRUD
+-- Simulating CRUD
 
--- Criação
+-- Creating
 
--- 1)
+-- New Client)
 INSERT INTO 
 	clientes (nome, lealdade)
 VALUES
 	('Georgia', 0);
--- 2)
+-- New Order)
 INSERT INTO
 	pedidos (status, cliente_id)
 VALUES
 	('Recebido', 6);
--- 3)
+-- Products to order)
 INSERT INTO
 	produtos_pedidos (pedido_id, produto_id)
 VALUES
@@ -21,9 +21,10 @@ VALUES
     (6, 6),
     (6, 8),
     (6, 8);
--- Leitura
 
--- 1)
+-- Reading
+
+-- Georgia's Order Info)
 SELECT
 	cl.id, cl.nome, cl.lealdade,
     pe.id, pe.status, pe.cliente_id,
@@ -38,9 +39,10 @@ JOIN
 	produtos pr ON pr.id = pp.produto_id
 WHERE
 	cl.nome ILIKE 'georgia';
--- Atualização
 
--- 1)
+-- Updating
+
+-- Updating Georgia's loyalty points)
 UPDATE
 	clientes cl
 SET
@@ -62,9 +64,9 @@ WHERE
 	cl.nome ILIKE 'georgia';
 
 
--- Deleção
+-- Deleting
 
--- 1)
+-- Deleting user Marcelo w/ Cascade)
 DELETE FROM
 	clientes cl
 WHERE
