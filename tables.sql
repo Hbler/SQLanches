@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS enderecos(
   complemento VARCHAR(100),
   cliente_id INTEGER UNIQUE NOT NULL,
   FOREIGN KEY (cliente_id) REFERENCES clientes (id) ON DELETE CASCADE
+);
 
 -- Orders entity
 CREATE TABLE IF NOT EXISTS pedidos(
